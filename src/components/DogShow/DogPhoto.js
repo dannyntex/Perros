@@ -1,7 +1,8 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { getIsLoading } from '../../store/modules/dogImages/slice'
-import Modal from 'react-modal'
+import Zoom from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
 import '../../styles.css'
 export const DogPhoto = (props) => {
     const { urlImage } = props
@@ -11,11 +12,11 @@ export const DogPhoto = (props) => {
         dispatch(getIsLoading(false))
     }
 
-    useEffect(() => {
-        Modal.setAppElement('body')
-    }, [showModal])
+    // useEffect(() => {
+    //     Modal.setAppElement('body')
+    // }, [showModal])
     return (
-        <Fragment>
+        <Zoom>
             <img
                 src={urlImage}
                 width="150"
@@ -25,31 +26,8 @@ export const DogPhoto = (props) => {
                 onClick={() => setShowModal(true)}
                 alt="dog"
             />
-            <div className="modal fade">
-                <div className="modal-dialog modal-dialog-centered">
-                    <div className="modal-content">
-                        <Modal isOpen={showModal} className="modal-custon">
-                            <div>
-                                <button
-                                    type="button"
-                                    className="btn btn-primary"
-                                    onClick={() => setShowModal(false)}
-                                >
-                                    Cerrar
-                                </button>
-                            </div>
-                            <div className="centered">
-                                <img
-                                    src={urlImage}
-                                    width="300"
-                                    loading="lazy"
-                                    alt="dog"
-                                />
-                            </div>
-                        </Modal>
-                    </div>
-                </div>
-            </div>
-        </Fragment>
+ 
+        
+        </Zoom>
     )
 }
