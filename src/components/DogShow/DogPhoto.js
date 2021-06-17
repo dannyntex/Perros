@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react'
+import React from 'react'
 import { useDispatch } from 'react-redux'
 import { getIsLoading } from '../../store/modules/dogImages/slice'
 import Zoom from 'react-medium-image-zoom'
@@ -7,14 +7,11 @@ import '../../styles.css'
 export const DogPhoto = (props) => {
     const { urlImage } = props
     const dispatch = useDispatch()
-    const [showModal, setShowModal] = useState(false)
+
     const handleOnLoad = () => {
         dispatch(getIsLoading(false))
     }
 
-    // useEffect(() => {
-    //     Modal.setAppElement('body')
-    // }, [showModal])
     return (
         <Zoom>
             <img
@@ -23,7 +20,6 @@ export const DogPhoto = (props) => {
                 className="img-fluid img-thumbnail p-2"
                 loading="lazy"
                 onLoad={handleOnLoad}
-                onClick={() => setShowModal(true)}
                 alt="dog"
             />
         </Zoom>

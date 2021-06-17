@@ -4,6 +4,8 @@ import DogContainer from '../components/DogShow'
 import { DogList } from '../components/DogBox/DogBox'
 import { useSelector } from 'react-redux'
 import { dogBreedSelector } from '../store/modules/sharedSelect'
+import { NoFound } from '../components/NoFound'
+
 export const AppRouter = () => {
     let history = useHistory()
 
@@ -17,6 +19,7 @@ export const AppRouter = () => {
         <Switch>
             <Route path="/:dog" component={DogContainer} />
             <Route exact path="/" component={DogList} />
+            <Route path="*" component={NoFound} />
         </Switch>
     )
 }

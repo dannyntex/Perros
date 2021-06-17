@@ -9,6 +9,7 @@ import { getDogImage } from '../../store/modules/dogImages/slice'
 
 import { DogPhoto } from './DogPhoto'
 import { DogSelect } from '../DogSelect/DogSelect'
+import { NoFound } from '../NoFound'
 
 const DogContainer = () => {
     const dogImage = useSelector((state) => dogImageSelector(state))
@@ -42,9 +43,13 @@ const DogContainer = () => {
                 <div>
                     <h1>{dog}</h1>
                     <div className=" d-flex flex-wrap  align-content-between">
-                        {dogImage.map((urlImage, i) => {
-                            return <DogPhoto urlImage={urlImage} key={i} />
-                        })}
+                        {!dogImage.length ? (
+                            <NoFound />
+                        ) : (
+                            dogImage.map((urlImage, i) => {
+                                return <DogPhoto urlImage={urlImage} key={i} />
+                            })
+                        )}
                     </div>
                 </div>
             )}
