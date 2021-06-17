@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import { Switch, Route, useHistory } from 'react-router-dom'
-import { DogImages } from '../components/DogImages'
-import { DogList } from '../components/DogList'
+import DogContainer from '../components/DogShow'
+import { DogList } from '../components/DogBox/DogBox'
 import { useSelector } from 'react-redux'
-import { dogBreedSelector } from '../store/modules/dogImages/selectors'
+import { dogBreedSelector } from '../store/modules/sharedSelect'
 export const AppRouter = () => {
     let history = useHistory()
 
@@ -15,7 +15,7 @@ export const AppRouter = () => {
     }, [breed])
     return (
         <Switch>
-            <Route path="/:dog" component={DogImages} />
+            <Route path="/:dog" component={DogContainer} />
             <Route exact path="/" component={DogList} />
         </Switch>
     )

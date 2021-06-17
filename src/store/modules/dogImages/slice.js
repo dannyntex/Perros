@@ -4,17 +4,13 @@ const initialState = {
     error: null,
     pending: true,
     dogImage: [],
-    isLoading: false,
-    breed: ''
+    isLoading: false
 }
 
 const slice = createSlice({
     name: 'dogImage',
     initialState,
     reducers: {
-        selectedDog(state, action) {
-            state.breed = action.payload
-        },
         getDogImage(state) {
             state.error = null
             state.pending = false
@@ -32,6 +28,9 @@ const slice = createSlice({
             state.pending = false
             state.dogImage = []
             state.isLoading = false
+        },
+        getIsLoading(state, action) {
+            state.isLoading = action.payload
         }
     }
 })
@@ -39,8 +38,8 @@ const slice = createSlice({
 export const dogImageSlice = slice.reducer
 
 export const {
-    selectedDog,
     getDogImage,
     getDogImageSuccess,
-    getDogImageFailed
+    getDogImageFailed,
+    getIsLoading
 } = slice.actions

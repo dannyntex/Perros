@@ -4,13 +4,17 @@ const initialState = {
     error: null,
     pending: true,
     dogList: [],
-    isLoading: false
+    isLoading: false,
+    breed: ''
 }
 
 const slice = createSlice({
     name: 'dogList',
     initialState,
     reducers: {
+        selectedDog(state, action) {
+            state.breed = action.payload
+        },
         getDogList(state) {
             state.error = null
             state.pending = false
@@ -34,4 +38,5 @@ const slice = createSlice({
 
 export const dogListSlice = slice.reducer
 
-export const { getDogList, getDogListSuccess, getDogListFailed } = slice.actions
+export const { selectedDog, getDogList, getDogListSuccess, getDogListFailed } =
+    slice.actions
