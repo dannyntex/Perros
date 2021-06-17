@@ -26,8 +26,6 @@ export const DogPhoto = (props) => {
                 onClick={() => setShowModal(true)}
                 alt="dog"
             />
- 
-        
         </Zoom>
     )
 }
