@@ -29,7 +29,7 @@ export const DogPhoto = (props) => {
                 <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content">
                         <Modal isOpen={showModal} className="modal-custon">
-                            <div >
+                            <div>
                                 <button
                                     type="button"
                                     className="btn btn-primary"
@@ -44,7 +44,6 @@ export const DogPhoto = (props) => {
                                     width="300"
                                     loading="lazy"
                                     alt="dog"
-                                    
                                 />
                             </div>
                         </Modal>

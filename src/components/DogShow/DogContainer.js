@@ -36,8 +36,8 @@ const DogContainer = () => {
             </nav>
             {isLoading ? (
                 <div className="spinner-border" role="status">
-                <span className="visually-hidden">Loading...</span>
-              </div>
+                    <span className="visually-hidden">Loading...</span>
+                </div>
             ) : (
                 <div>
                     <h1>{dog}</h1>
